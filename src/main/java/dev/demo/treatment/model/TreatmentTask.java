@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Objects;
 
 @Entity
@@ -76,7 +79,7 @@ public class TreatmentTask {
                 "id=" + id +
                 ", treatmentAction=" + treatmentAction +
                 ", patientId='" + patientId + '\'' +
-                ", startTime=" + startTime +
+                ", startTime=" + LocalDateTime.ofInstant(Instant.ofEpochMilli(startTime), ZoneId.systemDefault()) +
                 ", status=" + status +
                 '}';
     }
